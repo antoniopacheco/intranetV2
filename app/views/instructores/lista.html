@@ -1,0 +1,22 @@
+<table datatable="ng" class="table table-bordered table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Télefono</th>
+        <th>Correo</th>
+        <th>Cursos</th>
+        <th>Sede</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="instructor in instructores">
+      	<td>{{instructor.nombre}}</td>
+      	<td>{{instructor.telefono}}</td>
+      	<td>{{instructor.email}}</td>
+      	<td>{{instructor.cursos}}</td>
+      	<td>{{instructor.id_cede}}</td>
+      	<td>{{instructor.id_instructor}}</td>
+      </tr>
+      </tbody>
+</table>

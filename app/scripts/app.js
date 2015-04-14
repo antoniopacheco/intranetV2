@@ -11,7 +11,8 @@
 angular
   .module('intranetv2App', [
     'ngResource',
-    'ngRoute'
+    'ngRoute',
+    'datatables'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -22,6 +23,10 @@ angular
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
+      })
+      .when('/instructores',{
+        templateUrl: 'views/instructores/lista.html',
+        controller: 'InstructorCtrl'
       })
       .otherwise({
         redirectTo: '/'
