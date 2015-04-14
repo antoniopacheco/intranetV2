@@ -9,6 +9,11 @@
  */
 angular.module('intranetv2App')
   .controller('InstructorCtrl', ['$scope','$http','instructor', function ($scope, $http,instructor) {
+  	function InstructorCtrl(DTOptionsBuilder, DTColumnDefBuilder){
+  		  	var vm = this;
+
+  	 vm.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers').withDisplayLength(2);
+  	}
 
   	$scope.instructores =[];
   	loadRemoteData();
