@@ -1,0 +1,8 @@
+<ul class="sidebar-menu" ng:controller="MenuCtrl">
+  <li class="header">Menú Principal</li>
+    <li ng:repeat="app in menus">
+      <a ng=href="#/{{app.controlador}}/{{app.metodo}}">
+        <i class="fa {{app.icono}}"></i><span>{{app.Nombre}}</span>
+      </a>
+    </li>  
+</ul>

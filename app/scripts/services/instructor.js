@@ -8,16 +8,17 @@
  * Service in the intranetv2App.
  */
 angular.module('intranetv2App')
-  .service('instructor', function ($http,$q) {
+  .service('instructor', function ($http,$q,ProviderConfigService) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     return({
     	getAll: showall
     });
 
+  
     function showall(){
     	var request = $http({
 	    	method: 'GET',
-	    	url: 'http://api.intranetv2.com/instructores',
+	    	url: ProviderConfigService.apiURL+'instructores'
     	});
 
     	return (request.then(handleSuccess, handleError ));
