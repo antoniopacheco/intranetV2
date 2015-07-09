@@ -18,7 +18,7 @@
 					    </thead>
 					    <tbody>
 					      <tr ng-repeat="instructor in instructores">
-					      	<td>{{instructor.nombre}}</td>
+					      	<td><a ng-href="#/instructores/{{instructor.id_instructor}}">{{instructor.nombre}}</a></td>
 					      	<td>{{instructor.telefono}}</td>
 					      	<td>{{instructor.email}}</td>
 					      	<td ng-bind-html="instructor.cursos | unsafe"></td>

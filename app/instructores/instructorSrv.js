@@ -8,10 +8,11 @@
  * Service in the intranetv2App.
  */
 angular.module('intranetv2App')
-  .service('instructor', function ($http,$q,ProviderConfigService) {
+  .service('instructorSrv', function ($http,$q,ProviderConfigService) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     return({
-    	getAll: showall
+    	getAll: showall,
+        show: show
     });
 
   
@@ -34,5 +35,15 @@ angular.module('intranetv2App')
     
     function handleSuccess(response){
     	return(response.data);
+    }
+
+    function show(id){
+        $http.get(ProviderConfigService.apiURL+'instructores/'+id)
+        .success(function(data){
+            return data.instructor;
+        })
+        .error(function(data){
+            return data;
+        })
     }
   });

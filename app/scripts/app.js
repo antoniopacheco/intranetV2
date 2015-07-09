@@ -18,7 +18,8 @@ angular
     'ngRoute',
     'ngCookies',
     'ngStorage',
-    'datatables'
+    'datatables',
+    'ngLoadingSpinner'
   ])
   .constant('urls',{
     BASE: 'https://intranet2.intranet.com/',
@@ -39,8 +40,12 @@ angular
         controller: 'AboutCtrl'
       })
       .when('/instructores',{
-        templateUrl: 'views/instructores/lista.html',
-        controller: 'InstructorCtrl'
+        templateUrl: 'instructores/lista.html',
+        controller: 'InstructoresCtrl'
+      })
+      .when('/instructores/:id',{
+        templateUrl: 'instructores/vista.html',
+        controller: 'viewInstructorCtrl'
       })
       .when('/login', {
         controller: 'LoginController',
