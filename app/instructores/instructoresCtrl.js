@@ -8,6 +8,7 @@
  */
 angular.module('intranetv2App')
   .controller('InstructoresCtrl', ['$scope','$http','instructorSrv', function ($scope, $http,instructorSrv) {
+    console.log("hola no func");
   	function InstructoresCtrl(DTOptionsBuilder, DTColumnDefBuilder){
       var vm = this;
       vm.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers').withDisplayLength(2);

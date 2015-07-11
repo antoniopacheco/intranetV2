@@ -47,6 +47,10 @@ angular
         templateUrl: 'instructores/vista.html',
         controller: 'viewInstructorCtrl'
       })
+      .when('/logout',{
+          controller: 'LogoutCtrl',
+          template: ' '
+      })
       .when('/login', {
         controller: 'LoginController',
         templateUrl: 'login/login.view.html',
@@ -82,9 +86,10 @@ angular
       }]);
     }
 
-    function run($localStorage,AuthenticationService){
+    function run($localStorage,AuthenticationService,$location){
       //checamos si ya tiene iniciada sesion
-      if($localStorage.token){
+
+      if($localStorage.token && $location.path() != '/logout'){
         //actualizamos apps
           AuthenticationService.checkApps();
       }

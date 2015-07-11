@@ -11,13 +11,13 @@
         function successAuth(res) {
                $localStorage.token = res.token;
                 checkApps();
-              //  window.location = "/app";
+              window.location = "#/";
            }
 
            function updateApps(data){
               //$localStorage.menu = data.apps;
               $rootScope.menu = data.apps;
-              console.log($rootScope.menu);
+              $rootScope.user = data.user;
            }
            function checkApps(){
               AuthenticationService.checkApps(updateApps);

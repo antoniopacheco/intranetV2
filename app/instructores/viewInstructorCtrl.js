@@ -8,8 +8,19 @@
  */
  angular.module('intranetv2App')
  .controller('viewInstructorCtrl',['$scope','$routeParams','instructorSrv', function($scope,$routeParams,instructorSrv){
+
  	$scope.instructor={};
  	var id_instructor = $routeParams.id;
- 	$scope.instructor = instructorSrv.show(id_instructor);
+
+ 	function applyRemoteData(instructor){
+    	$scope.instructor = instructor.instructor;
+    }
+
+ 	instructorSrv.show(id_instructor)
+ 	.then(
+  		function(instructor){
+  			applyRemoteData(instructor);
+  		}
+ 	)
  }
  ]);

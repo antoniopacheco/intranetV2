@@ -38,12 +38,7 @@ angular.module('intranetv2App')
     }
 
     function show(id){
-        $http.get(ProviderConfigService.apiURL+'instructores/'+id)
-        .success(function(data){
-            return data.instructor;
-        })
-        .error(function(data){
-            return data;
-        })
+        var request = $http.get(ProviderConfigService.apiURL+'instructores/'+id);
+        return (request.then(handleSuccess, handleError ));
     }
   });

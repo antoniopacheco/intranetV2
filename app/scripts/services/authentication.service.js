@@ -38,6 +38,7 @@ angular.module('intranetv2App')
                $http.post(urls.BASE_API + '/user/getlogin', data).success(success).error(error)
            },
            logout: function (success) {
+            console.log("holaa");
                tokenClaims = {};
                delete $localStorage.token;
                success();
@@ -48,6 +49,7 @@ angular.module('intranetv2App')
            checkApps: function(success){
               $http.get(urls.BASE_API + '/user/getApps').success( function(data){
                 $rootScope.menu = data.apps;
+                $rootScope.user = data.user;
               })
            }
        };
