@@ -32,12 +32,8 @@ angular
   function config($routeProvider,$locationProvider, $httpProvider){
      $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'inicio/main.html',
         controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
       })
       .when('/instructores',{
         templateUrl: 'instructores/lista.html',
@@ -53,11 +49,11 @@ angular
       })
       .when('/login', {
         controller: 'LoginController',
-        templateUrl: 'login/login.view.html',
+        templateUrl: 'auth/login.view.html',
         controllerAs: 'vm'
       })
       .when('/sinprivilegios',{
-        templateUrl: 'views/errores/privilegios.html'
+        templateUrl: 'shared/errores/privilegios.html'
       })
       .otherwise({
         redirectTo: '/login'
