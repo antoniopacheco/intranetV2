@@ -19,7 +19,8 @@ angular
     'ngCookies',
     'ngStorage',
     'datatables',
-    'ngLoadingSpinner'
+    'ngLoadingSpinner',
+    'chart.js'
   ])
   .constant('urls',{
     BASE: 'https://intranet2.intranet.com/',
@@ -56,7 +57,7 @@ angular
         templateUrl: 'shared/errores/privilegios.html'
       })
       .otherwise({
-        redirectTo: '/login'
+        redirectTo: '/'
       });
 
       $httpProvider.interceptors.push(['$q', '$location', '$localStorage', function ($q, $location, $localStorage) {

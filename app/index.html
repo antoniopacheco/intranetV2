@@ -13,15 +13,16 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bower_components/fontawesome/css/font-awesome.min.css">
-        <link href="../adminlte/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../adminlte/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
 
     <link rel="stylesheet" href="../adminlte/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="../adminlte/css/skins/skin-blue.min.css">
-
+    <link rel="stylesheet" href="../adminlte/css/skins/skin-red.min.css">
+    <link rel="stylesheet" href="../assets/css/ionicons.min.css"  type="text/css" >
+    <link rel="stylesheet" href="../bower_components/angular-chart.js/dist/angular-chart.css">
    <!--  <link rel="stylesheet" href="styles/main.css"> -->
     <!-- endbuild -->
   </head>
-  <body ng-app="intranetv2App" class="skin-blue">
+  <body ng-app="intranetv2App" class="skin-red">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -148,7 +149,7 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu" ng-controller="MenuCtrl">
             <li class="header">Menú Principal</li>
-
+            <li><a ng-href="#/">Inicio</a></li>
             <li ng-repeat="(nombreApp, app) in menu">
               <a ng-href="#/{{app.ruta}}/{{app.metodo}}">
                 <i class="fa {{app.icono}}"></i><span>{{nombreApp}}</span>
@@ -210,7 +211,7 @@
         <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../adminlte/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
         <script src="../adminlte/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
-
+<script src="../adminlte/plugins/chartjs/Chart.js" type="text/javascript"></script>
         <script src="../adminlte/js/app.min.js" type="text/javascript"></script>
         <script src="../bower_components/angular/angular.min.js"></script>
         <script src="../bower_components/angular-route/angular-route.min.js"></script>
@@ -222,11 +223,12 @@
         <script type="text/javascript" src="scripts/libraries/angular-loading-spiner/spin.min.js"></script>
         <script type="text/javascript" src="scripts/libraries/angular-loading-spiner/angular-spinner.min.js"></script>
           <script type="text/javascript" src="scripts/libraries/angular-loading-spiner/angular-loading-spinner.js"></script>
+        <script src="../bower_components/angular-chart.js/dist/angular-chart.js"></script>
 
         <script src="scripts/app.js"></script>
         <script src="shared/config.factory.js"></script>
         <script src="inicio/mainctrl.js"></script>
-
+        <script src="pagos/pagosSrv.js"></script>
         <!--INSTRUCTORES-->
         <script src="instructores/instructoresCtrl.js"></script>
         <script src="instructores/viewInstructorCtrl.js"></script>
