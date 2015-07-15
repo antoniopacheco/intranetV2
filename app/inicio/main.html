@@ -101,14 +101,30 @@
                       </p>
                       <div class="chart">
                         <!-- Sales Chart Canvas -->
-                        <canvas id="line" class="chart chart-line" data="data" labels="labels" legend="true" series="series" click="onClick" options='{multiTooltipTemplate: "<%= toCurrency(value) %>", scaleLabel: "<%= toCurrency(value) %>"}'>
+                        <canvas id="line" class="chart chart-line" data="data" colours="
+                        [{
+                          fillColor: 'rgba(236, 240, 245, 1)',
+                          strokeColor: 'rgba(236, 240, 245, 1)',
+                          highlightFill: 'rgba(236, 240, 245, 1)',
+                          highlightStroke: 'rgba(236, 240, 245, 1)'
+                          },{
+                       fillColor: 'rgba(112, 38, 61, 0.6)',
+                          strokeColor: 'rgba(112, 38, 61, 0.6)',
+                          highlightFill: 'rgba(112, 38, 61, 0.6)',
+                          highlightStroke: 'rgba(112, 38, 61, 0.6)'
+                          }]
+                        " labels="labels" legend="true" series="series" click="onClick" options='{
+                        multiTooltipTemplate: "<%= toCurrency(value) %>", 
+                        scaleLabel: "<%= toCurrency(value) %>",
+                        scaleShowGridLines : false
+                        }'>
                           
                         </canvas> 
                       </div><!-- /.chart-responsive -->
                     </div><!-- /.col -->
                     <div class="col-md-4">
                       <p class="text-center">
-                        <strong>Metas POA</strong>
+                        <strong>POA 2014</strong>
                       </p>
                       <div class="progress-group">
                         <span class="progress-text">Cursos</span>
@@ -118,21 +134,15 @@
                         </div>
                       </div><!-- /.progress-group -->
                       <div class="progress-group">
-                        <span class="progress-text">Participantes</span>
-                        <span class="progress-number"><b>310</b>/400</span>
-                        <div class="progress sm">
-                          <div class="progress-bar progress-bar-red" style="width: 70%"></div>
-                        </div>
-                      </div><!-- /.progress-group -->
-                      <div class="progress-group">
                         <span class="progress-text">Ingresos</span>
                         <span class="progress-number"><b>480</b>/800</span>
                         <div class="progress sm">
                           <div class="progress-bar progress-bar-green" style="width: 60%"></div>
                         </div>
-                      </div><!-- /.progress-group -->
+                      </div><!-- /.progress-group -->                      
+                      
                       <div class="progress-group">
-                        <span class="progress-text">???</span>
+                        <span class="progress-text">Usuarios</span>
                         <span class="progress-number"><b>250</b>/500</span>
                         <div class="progress sm">
                           <div class="progress-bar progress-bar-yellow" style="width: 50%"></div>
@@ -145,23 +155,23 @@
                   <div class="row">
                     <div class="col-sm-3 col-xs-6">
                       <div class="description-block border-right">
-                        <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>
-                        <h5 class="description-header">$35,210.43</h5>
-                        <span class="description-text">Ingresos Totales</span>
+                        <span class="description-percentage {{flechaIngreso}}"><i class="fa fa-caret-up"></i> {{ingresoPorcentajeActual}}%</span>
+                        <h5 class="description-header">{{current_ingresos | currency:"$"}}</h5>
+                        <span class="description-text">Ingresos Totales (A Julio)</span>
                       </div><!-- /.description-block -->
                     </div><!-- /.col -->
                     <div class="col-sm-3 col-xs-6">
                       <div class="description-block border-right">
                         <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>
                         <h5 class="description-header">$10,390.90</h5>
-                        <span class="description-text">Costos Totales</span>
+                        <span class="description-text">Cursos/Egresos Totales  (A Julio)</span>
                       </div><!-- /.description-block -->
                     </div><!-- /.col -->
                     <div class="col-sm-3 col-xs-6">
                       <div class="description-block border-right">
                         <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>
                         <h5 class="description-header">$24,813.53</h5>
-                        <span class="description-text">Ganancias Totales</span>
+                        <span class="description-text">Usuarios/Ganancias Totales</span>
                       </div><!-- /.description-block -->
                     </div><!-- /.col -->
                     <div class="col-sm-3 col-xs-6">
