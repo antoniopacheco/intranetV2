@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <div class="box box-default">
         <div class="box-header with-border">
-            <h3 class="box-title">Bienvenidos</h3>
+            <h3 class="box-title">Progreso POA 2015</h3>
             <div class="box-tools pull-right">
               <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               <div class="btn-group">
@@ -26,8 +26,8 @@
                   <span class="info-box-icon bg-aqua"><i class="ion ion-briefcase"></i></span>
                   <div class="info-box-content">
                     <span class="info-box-text">CURSOS</span>
-                    15/20
-                    <span class="info-box-number">90<small>%</small></span>
+                    {{current_cursos}}/{{poa_cursos}}
+                    <span class="info-box-number">{{porcenta_cursos}}<small>%</small></span>
                     OFT/POA
                   </div><!-- /.info-box-content -->
                 </div><!-- /.info-box -->
@@ -38,8 +38,8 @@
                   <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
                   <div class="info-box-content">
                     <span class="info-box-text">Ingresos</span>
-                    $900.50 m/$1.502 M
-                    <span class="info-box-number">90<small>%</small></span>
+                   {{current_ingresos | currency:"$"}}/{{poa_ingresos | currency:"$"}}
+                    <span class="info-box-number">{{porcenta_ingresos}}<small>%</small></span>
                     OFT/POA
                   </div><!-- /.info-box-content -->
                 </div><!-- /.info-box -->
@@ -49,23 +49,23 @@
                 <div class="info-box">
                   <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
                   <div class="info-box-content">
-                    <span class="info-box-text">Participantes</span>
-                     <span class="info-box-number"> 22,000</span>
-                   <!--  <span class="info-box-number">90<small>%</small></span>-->
-                    2,540 nuevos
+                    <span class="info-box-text">Usuarios</span>
+                    {{current_participantes}}/{{poa_participantes}}
+                    <span class="info-box-number">{{porcenta_participantes}}<small>%</small></span>
+                    OFT/POA
                   </div><!-- /.info-box-content -->
                 </div><!-- /.info-box -->
               </div>
 
-              <div class="col-md-3 col-sm-6 col-xs-12">
+           <!--    <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="info-box">
                 <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
                 <div class="info-box-content">
                   <span class="info-box-text">Likes</span>
                   <span class="info-box-number">41,410</span>
-                </div><!-- /.info-box-content -->
-              </div><!-- /.info-box -->
-            </div>
+                </div>
+              </div>
+            </div> -->
 
             </div>
         </div>
@@ -97,11 +97,11 @@
                   <div class="row">
                     <div class="col-md-8">
                       <p class="text-center">
-                        <strong>Ingresos: Semestre 1 2014,2015</strong>
+                        <strong>Ingresos: 2014,2015</strong>
                       </p>
                       <div class="chart">
                         <!-- Sales Chart Canvas -->
-                        <canvas id="line" class="chart chart-line" data="data" labels="labels" legend="true" series="series" click="onClick" options='{multiTooltipTemplate: "<%= toCurrency(value) %>"}'>
+                        <canvas id="line" class="chart chart-line" data="data" labels="labels" legend="true" series="series" click="onClick" options='{multiTooltipTemplate: "<%= toCurrency(value) %>", scaleLabel: "<%= toCurrency(value) %>"}'>
                           
                         </canvas> 
                       </div><!-- /.chart-responsive -->
@@ -387,5 +387,4 @@
                     </div><!-- /.box-footer -->
      </div>
   </div>
-
 </div>

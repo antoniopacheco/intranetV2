@@ -37,7 +37,7 @@
 
            $scope.logout = function () {
                AuthenticationService.logout(function () {
-                   window.location = "/"
+                   window.location = "/login"
                });
            };
            $scope.token = $localStorage.token;

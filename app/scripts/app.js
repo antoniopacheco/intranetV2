@@ -57,7 +57,7 @@ angular
         templateUrl: 'shared/errores/privilegios.html'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/login'
       });
 
       $httpProvider.interceptors.push(['$q', '$location', '$localStorage', function ($q, $location, $localStorage) {

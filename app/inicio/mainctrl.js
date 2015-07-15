@@ -11,18 +11,19 @@ angular
   .module('intranetv2App')
   .controller('MainCtrl',MainCtrl);
     
-    MainCtrl.$inject= ['$scope','$rootScope','pagosSrv','AuthenticationService'];
+    MainCtrl.$inject= ['$scope','$rootScope','pagosSrv','poaSrv','AuthenticationService'];
 
-    function MainCtrl($scope, $rootScope, pagosSrv, AuthenticationService){
+    function MainCtrl($scope, $rootScope, pagosSrv, poaSrv, AuthenticationService){
     //validacion si puede ver costos?
       var currentTime = new Date()
   		var year = currentTime.getFullYear();
   		var yearbefore = year--;
       $scope.series = [year, yearbefore];
       $scope.data=[];
-      loadRemoteData();
+      loadPagos();
+      loadPoa();
 
-      function applyRemoteData(data){
+      function applyPagos(data){
         var actual=[];
         var anterior=[];
         var meses =[];
@@ -38,15 +39,39 @@ angular
         $scope.labels = meses;
       }
 
-      function loadRemoteData(){
+      function applyPoa(data){
+        console.log(data);
+        var year = Object.keys(data.poa)[0];
+        $scope.current_cursos = data.poa[year]['total']['cursos']['ofertado'];
+        $scope.poa_cursos = data.poa[year]['total']['cursos']['programado'];
+        $scope.porcenta_cursos = data.poa[year]['total']['cursos']['porcentaje'];
+
+        $scope.current_participantes = data.poa[year]['total']['usuarios']['ofertado'];
+        $scope.poa_participantes = data.poa[year]['total']['usuarios']['programado'];
+        $scope.porcenta_participantes = data.poa[year]['total']['usuarios']['porcentaje']; 
+
+        $scope.current_ingresos = data.poa[year]['total']['ingresos']['ofertado'];
+        $scope.poa_ingresos = data.poa[year]['total']['ingresos']['programado'];
+        $scope.porcenta_ingresos = data.poa[year]['total']['ingresos']['porcentaje'];                       
+      }
+
+      function loadPagos(){
         pagosSrv.getall()
         .then(
           function(data){
-            applyRemoteData(data.resumen);
+            applyPagos(data.resumen);
           }
         )
-      }      
-		  $scope.labels = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio"];
+      } 
+
+      function loadPoa(){
+        poaSrv.getResume()
+        .then(
+          function(data){
+            applyPoa(data);
+          }
+        )
+      }            
 		  
     $scope.onClick = function (points, evt) {
       console.log(points, evt);

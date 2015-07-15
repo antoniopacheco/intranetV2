@@ -2,22 +2,22 @@
 
 /**
  * @ngdoc service
- * @name intranetv2App.pagosSrv
+ * @name intranetv2App.poaSrv
  * @description
  * # Pagos
  * Service in the intranetv2App.
  */
 angular.module('intranetv2App')
-  .service('pagosSrv', function ($http,$q,ProviderConfigService) {
+  .service('poaSrv', function ($http,$q,ProviderConfigService) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     return({
-    	getall: showall
+    	getResume: showall
     });
 
     function showall(){
       var request = $http({
 	     method: 'GET',
-	     url: ProviderConfigService.apiURL+'pagos/getResume'
+	     url: ProviderConfigService.apiURL+'poa/getResume'
       });
     	return (request.then(handleSuccess, handleError ));
     }

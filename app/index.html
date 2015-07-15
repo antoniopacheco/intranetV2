@@ -22,7 +22,7 @@
    <!--  <link rel="stylesheet" href="styles/main.css"> -->
     <!-- endbuild -->
   </head>
-  <body ng-app="intranetv2App" class="skin-red">
+  <body ng-app="intranetv2App" class="sidebar-collapse sidebar-mini skin-red">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -147,22 +147,22 @@
           </form>
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
-          <ul class="sidebar-menu" ng-controller="MenuCtrl">
-            <li class="header">Menú Principal</li>
-            <li><a ng-href="#/">Inicio</a></li>
-            <li ng-repeat="(nombreApp, app) in menu">
-              <a ng-href="#/{{app.ruta}}/{{app.metodo}}">
-                <i class="fa {{app.icono}}"></i><span>{{nombreApp}}</span>
-              </a>
-            </li>  
-        </ul>
+            <ul class="sidebar-menu" ng-controller="MenuCtrl">
+              <li class="header">Menú Principal</li>
+              <li><a ng-href="#/"><i class="fa fa-dashboard"></i><span>Inicio</span></a></li>
+              <li ng-repeat="(nombreApp, app) in menu">
+                <a ng-href="#/{{app.ruta}}/{{app.metodo}}">
+                  <i class="fa {{app.icono}}"></i><span>{{nombreApp}}</span>
+                </a>
+              </li>  
+            </ul>
 
         </section>
       </aside>
  
              <!--  <li><a ng-href="#/about">About</a></li>
               <li><a ng-href="#/">Contact</a></li> -->
-       <div class="content-wrapper">
+      <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
@@ -183,11 +183,12 @@
 
 
 
-    <div class="footer">
-      <div class="container">
-        <p> Centro de Educación Continua Unidad Tijuana</p>
-      </div>
-    </div>
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 2.0.0
+        </div>
+        <strong>Copyright &copy; 2014-2015 <a href="http://facebook.com/jepacheco">Antonio Pacheco</a>.</strong> All rights reserved.
+      </footer>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -229,6 +230,8 @@
         <script src="shared/config.factory.js"></script>
         <script src="inicio/mainctrl.js"></script>
         <script src="pagos/pagosSrv.js"></script>
+         <script src="poa/poaSrv.js"></script>
+
         <!--INSTRUCTORES-->
         <script src="instructores/instructoresCtrl.js"></script>
         <script src="instructores/viewInstructorCtrl.js"></script>
@@ -237,6 +240,9 @@
         <script src="auth/user.service.js"></script>
         <script src="auth/authentication.service.js"></script>
         <script src="auth/flash.service.js"></script>
+
+        <!-- CURSOS -->
+        <script src="cursos/cursosSrv.js"></script>
 
         <script src="auth/login.controller.js"></script>
         <script src="auth/logout.controller.js"></script>
